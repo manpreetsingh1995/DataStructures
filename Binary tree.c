@@ -17,6 +17,25 @@ void inorder(struct node *node)
 	inorder(node->right);
 }
 
+void preorder(struct node* node)
+{
+	if(node==NULL)
+		return;
+	printf("  |%d|   ",node->info);
+	preorder(node->left);
+	preorder(node->right);
+}
+
+void postorder(struct node* node)
+{
+	if(node==NULL)
+		return;
+	preorder(node->left);
+	preorder(node->right);
+        printf("  |%d|   ",node->info);
+}
+	
+
 void main()
 {
 	int item,num=0,n;
@@ -64,4 +83,8 @@ void main()
 		}
 	}
 	inorder(root);
+	printf("\n");
+	preorder(root);
+	printf("\n");
+	postorder(root);
 }
